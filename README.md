@@ -10,7 +10,7 @@
     (3) Load
 
 2. Communication between Extractor and Loader is via a Blocking Queue 
-    -- Extractor Loads the Queue & Loader empties it
+    -- "Extractor" Loads the Queue & "Loader" empties it
       
 3. "Extractor" is responsible for extracting data from external data source 
     and enqueue it as json object for Loader to consume. Extractor may optionally instantiate 
@@ -35,8 +35,8 @@
   or have seperate properties files for adapters.
       
 2. Extraction is I/O heavy and makes several Http Calls to reterieve data. 
-  The Executor implements runnable interface hence multiple threads may be used to parallelize 
-  extraction activity. Blocking Queue is thread-safe.
+  The Executor implements runnable interface hence multiple threads (with smaller exclusive queries) 
+  may be used to parallelize extraction activity. Blocking Queue is thread-safe thus this design works.
 
 ##Current Hard-coded Parameters
 1. Queue Size between Extractor / Loader ==> 100 items
@@ -53,7 +53,7 @@ Extractor:
       
 Loader:
 
-5. Max File Size : (999999 + 2) characters 
+5. Max File Size : (5000 + 2) characters 
 6. Blocking Timeout: 10 seconds and upto 10 consequtive timeouts 
     after which Loader shuts down (Assuming there is no new data) and the application shuts down.
 7.OutputFilePath = c:\temp\data\out_<offset>.json --> Offset increments based on MaxFileSize
