@@ -39,10 +39,10 @@
   extraction activity. Blocking Queue is thread-safe.
 
 ##Current Hard-coded Parameters
-1. Queue Size between Extractor / Loader --> 100 items
+1. Queue Size between Extractor / Loader ==> 100 items
       
 Extractor:
------------
+
 2. Extraction Query -- All English Movies: 
     "https://wdq.wmflabs.org/api?q=claim[31:11424]%20AND%20claim[364:1860]"
 
@@ -52,7 +52,7 @@ Extractor:
         and then loops until input exists
       
 Loader:
---------
+
 5. Max File Size : (999999 + 2) characters 
 6. Blocking Timeout: 10 seconds and upto 10 consequtive timeouts 
     after which Loader shuts down (Assuming there is no new data) and the application shuts down.
