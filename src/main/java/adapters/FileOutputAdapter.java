@@ -55,11 +55,11 @@ public class FileOutputAdapter implements IOutputAdapter {
                 offset++;
             }
 
-
+          if(currentFileSize > 2)fout.append(",");
           for(int i=0; i<batch.size();i++) {
               String data = batch.get(i).toString();
-              fout.append(data);
 
+              fout.append(data);
               if (i < batch.size() - 1) fout.append(",");
               currentFileSize += data.length();
           }
