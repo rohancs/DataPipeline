@@ -58,3 +58,6 @@ Loader:
     after which Loader shuts down (Assuming there is no new data) and the application shuts down.
 * OutputFilePath = c:\temp\data\out_<offset>.json --> Offset increments based on MaxFileSize
       
+##Depends On
+* Google GSON library for working with json documents
+* Jersey client library to make Http service requests
