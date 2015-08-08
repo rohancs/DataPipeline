@@ -9,7 +9,7 @@
     (2) Transform -- not implemented 
     (3) Load
 
-2. Communication between Extrator and Loader is via a Blocking Queue 
+2. Communication between Extractor and Loader is via a Blocking Queue 
     -- Extractor Loads the Queue & Loader empties it
       
 3. "Extractor" is responsible for extracting data from external data source 
@@ -21,10 +21,12 @@
       
 5. "Loader" reads from the queue and writes to destination store.
       
-6. Both Extractor & Loader follow Adapter Pattern -- Thus Different Adapters may be 
-    implemented to extract from different data sources and written out to different data stores
+6. Application starts with one thread running "Extractor" and one thread running "Loader" and passes them a common queue object to communicate.
+
+7. Both Extractor & Loader use Adapter Pattern -- Thus Different Adapters may be 
+    implemented to extract data from different data sources and written out to different data stores
       
-7. This project provides "WikiDataInputAdapter" for reading WikiData and "FileOutputAdapter" 
+8. This project provides "WikiDataInputAdapter" for reading WikiData and "FileOutputAdapter" 
     to write to filesystem in Json Format.
       
 ##Improvements Required:
