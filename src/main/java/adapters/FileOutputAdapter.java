@@ -75,6 +75,7 @@ public class FileOutputAdapter implements IOutputAdapter {
     protected void finalize() throws Throwable {
         super.finalize();
         try {
+            fout.append("]");
             fout.close();
         }
         catch (IOException e) {
