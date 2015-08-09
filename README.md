@@ -54,7 +54,7 @@ Extractor:
       
 Loader:
 
-* Max File Size : (5000 + 2) characters 
+* Max File Size : (99999 + 2) characters 
 * Blocking Timeout: 10 seconds and upto 10 consequtive timeouts 
     after which Loader shuts down (Assuming there is no new data) and the application shuts down.
 * OutputFilePath = c:\temp\data\out_<offset>.json --> Offset increments based on MaxFileSize
