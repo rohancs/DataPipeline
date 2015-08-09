@@ -17,7 +17,7 @@ public class Loader implements Runnable {
         Queue = queue;
         if(adapter == OutputAdapter.File) {
             //TODO: Take input from properties/config file
-            outputAdapter = new FileOutputAdapter(5000);
+            outputAdapter = new FileOutputAdapter(99999);
         }
     }
     public void run() {
