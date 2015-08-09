@@ -37,6 +37,7 @@
 * Extraction is I/O heavy and makes several Http Calls to reterieve data. 
   The Executor implements runnable interface hence multiple threads (with smaller exclusive queries) 
   may be used to parallelize extraction activity. Blocking Queue is thread-safe thus this design works.
+  Local Optimizations have been made to make all Movie Requests in a batch in async mode, All Item de-references within a movie is also done synchronously.
 
 ##Current Hard-coded Parameters
 * Queue Size between Extractor / Loader ==> 100 items
@@ -53,7 +54,7 @@ Extractor:
       
 Loader:
 
-* Max File Size : (5000 + 2) characters 
+* Max File Size : (99999 + 2) characters 
 * Blocking Timeout: 10 seconds and upto 10 consequtive timeouts 
     after which Loader shuts down (Assuming there is no new data) and the application shuts down.
 * OutputFilePath = c:\temp\data\out_<offset>.json --> Offset increments based on MaxFileSize
