@@ -37,7 +37,7 @@
 * Extraction is I/O heavy and makes several Http Calls to reterieve data. 
   The Executor implements runnable interface hence multiple threads (with smaller exclusive queries) 
   may be used to parallelize extraction activity. Blocking Queue is thread-safe thus this design works.
-  Local Optimizations have been made to make all Movie Requests in a batch in async mode, All Item de-references within a movie is also done synchronously.
+  Local Optimizations have been made to make all Movie Requests in a batch in async mode, All Item de-references within a movie is also done asynchronously.
 
 ##Current Hard-coded Parameters
 * Queue Size between Extractor / Loader ==> 100 items
